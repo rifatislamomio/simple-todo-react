@@ -3,19 +3,12 @@ import React from 'react'
 export const TodoItem = ({ item, setTodoList, todoList }) => {
     //Handlers
     const completedTodo = () => {
-        
-         item.completed = true
-         setTodoList([...todoList])
+        item.completed = true
+        setTodoList([...todoList])
     };
-
-    function arrayRemove(arr, value) {
-        return arr.filter(function (ele) {
-            return ele !== value;
-        });
-    }
     
     const deleteTodo = () => {
-        todoList = arrayRemove(todoList, item)
+        todoList = todoList.filter((tItem) => tItem!== item)
         setTodoList([...todoList])
     };
     return (
