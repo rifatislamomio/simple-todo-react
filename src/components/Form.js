@@ -12,7 +12,7 @@ export const Form = ({ inputText, setInputText, todoList, setTodoList, setStatus
             setTodoList([...todoList, {
                 text: inputText,
                 completed: false,
-                id: Math.random() * 10000
+                key: Math.random() * 10000
             }])
             setInputText("")
         }

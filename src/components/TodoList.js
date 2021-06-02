@@ -8,6 +8,7 @@ export const TodoList = ({ todoList, setTodoList, filteredTodos }) => {
                 {filteredTodos.map(item => (
                     <TodoItem
                         item={item}
+                        key={item.key}
                         todoList={todoList}
                         setTodoList={setTodoList}
                     />

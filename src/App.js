@@ -12,7 +12,12 @@ function App() {
 
   //Effects
   useEffect(() => {
-    filterHandler()
+    getFromLocal()
+  }, []);
+
+  useEffect(() => {
+    filterHandler();
+    saveToLocal();
   }, [todoList, status])
 
 
@@ -33,6 +38,22 @@ function App() {
     }
   }
 
+  //Local Storage Setup
+  const saveToLocal = () =>
+  {
+    localStorage.setItem("todo", JSON.stringify(todoList))
+  }
+
+  const getFromLocal = () => {
+    if (localStorage.getItem('todo') === null) {
+      localStorage.setItem("todo", JSON.stringify([]))
+    }
+    else {
+      var parsedData = JSON.parse(localStorage.getItem("todo"))
+      setTodoList(parsedData)
+    }
+  }
+  
   return (
     <div>
       <header>
